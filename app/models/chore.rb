@@ -15,6 +15,13 @@ class Chore < ApplicationRecord
     scope :pending, -> { where(completed: false) }
     scope :done, -> { where(completed: true) }
 
-
+    #Methods
+    def status
+        if self.completed
+            "Completed"
+        else 
+            "Pending"
+        end
+    end
 
 end
