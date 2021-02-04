@@ -8,8 +8,10 @@ class Chore < ApplicationRecord
     validates_date :due_on
 
     #Scope
+
+    scope :past, -> { where('due_on < ?', Date.today.to_date) }
+    scope :upcoming, -> { where('due_on >= ?', Date.today.to_date) }
     scope :chronological, -> { joins(:task).order('due_on', 'completed') }
     scope :pending, -> { where(completed: false) }
     scope :done, -> { where(completed: true) }
-
 end
