@@ -11,8 +11,8 @@
 
 <% @chores.each do |chore| %>
   <tr>
-    <td><%= chore.child_id %></td>
-    <td><%= chore.task_id %></td>
+    <td><%= Child.find(chore.child_id).name %></td>
+    <td><%= Task.find(chore.task_id).name %></td>
     <td align="center"><%= chore.due_on.strftime('%b %d') %></td>
     <td align="center"><%= chore.status %></td>
     <td><%= link_to 'Edit', edit_chore_path(chore) %></td>
