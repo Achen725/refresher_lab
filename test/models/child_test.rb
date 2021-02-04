@@ -36,7 +36,6 @@ class ChildTest < ActiveSupport::TestCase
     should "have points_earned methods that updates points" do
       assert_equal 0, @alex.points_earned
     end
-    
   end
 
 end
